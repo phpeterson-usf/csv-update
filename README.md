@@ -16,13 +16,19 @@ data across CSV files, like a SQL join with foreign keys to different tables
 1. The result of that merge is a CSV file which can be imported into Canvas,
 reflecting the scoring results for Maketest without retyping them
 
+### Building
+1. It's the usual golang stuff: be sure to have go [set up](https://golang.org/doc/install)
+1. `go get github.com/phpeterson-usf/csv-update`
+1. `cd` into that directory, probably in `~/go/src/github.com/phpeterson-usf/csv-update`
+1. `go build`
+
 ### Usage
 1. Set up your Assignment Groups in Canvas, with an assignment within the group
 for test automation. This model of using Canvas ensures that there will be a column
 for automated grading in the exported CSV file. Canvas rubrics do not get a column
 in the exported file.
 1. Export a CSV file from your Canvas Gradebook
-1. Run maketest csv and copy that file into where you use `csv-update`
+1. Run `make test` and copy `$(PROJECT).csv` into where you use `csv-update`
 (I run `maketest` on a Raspberry Pi, but do Canvas import/export on a desktop computer)
 1. Create a CSV file which maps GitHub ID to SIS Login ID
 1. `csv-update` takes a `-C` option to set a working directory. I put my CSV files on my
